@@ -1,0 +1,365 @@
+// import Home from './components/Home.jsx'
+// import About from './components/About.jsx'
+// import Profile from './components/Profile.jsx'
+
+
+// const App = () => {
+  // javascript logic
+    
+    // return only html (html is only shown in browser)
+    // <div>
+    // <Home />
+    // <About />
+    // <Profile />
+    // </div>
+
+    // Getting data from api/server/backend
+//     let data = "data from the server"
+//     let array = ["Maths","Science"]
+//     let object = {
+//       name:"kanika sahu",
+//       age:19,
+//       email:"kanika@123"
+//     }
+    
+//     return (
+//     <div>
+//     <h1>{data}</h1>
+//     <h2>{array}</h2>
+//     <h3>{object.name}</h3>
+//     <h3>{object.age}</h3>
+//     <h3>{object.email}</h3>
+//     </div>
+//   )
+// }
+
+
+// const App = () => {
+//   let users = [
+//     {
+//       name:"John doe",
+//       age:25
+//     },
+//     {
+//       name:"Jenny doe",
+//       age:28
+//     }
+//   ]
+  
+//   let result = users.map((u,i) => <h1 key={i}>{u.name}</h1>)
+
+//   return(
+//     <div>
+//       {result}
+//     </div>
+//   )
+// }
+
+
+
+// import {useState} from 'react'
+
+// const App = () => {
+//   // var present = "Hello world"
+//   let[present,setpresent] = useState("Hello world !")
+//   var getInfo = () => {
+//     console.log('Heyyy hiii')
+//   }
+//   var setInfo = (info) => {
+//     console.log(info)
+//   }
+//   var makeInfo = () => {
+//     // the following setpresent is a asynchronous code.
+//     setpresent("Hello world is changed !")
+//     console.log(present)
+//   }
+//   return (
+//     <div>
+//        <button onClick={getInfo} className='bg-blue-400 py-5 px-5'>
+//         Click here!
+//        </button>
+//        <br />
+//        <button onClick={() => {setInfo("All good")}} className='bg-blue-400 py-5 px-5 my-5'>
+//         Press here!
+//        </button>
+//        <br />
+//        <h1>{present}</h1>
+//        <button onClick={makeInfo} className='bg-blue-400 py-5 px-5 my-5'>
+//         Click me
+//        </button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// Timing function code - In real time Time is changing
+// import { useState } from "react";
+// const App = () => {
+//   let[time,settime] = useState(new Date().toLocaleTimeString())
+//   setInterval(() => {
+//    settime(new Date().toLocaleTimeString())
+// }, 1000);
+//   return (
+//     <div>
+//      <h1 className="text-5xl">{time}</h1>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// Any data we have to shown through forms then the following code is used but this is not the correct way in react to show the data
+
+// import React from 'react'
+
+// const App = () => {
+//   var submitHandler = (e) => {
+//     e.preventDefault()
+//     let user = {
+//       username: e.target.username.value,
+//       email: e.target.email.value
+//     }
+//     console.log("submitted")
+//     console.log(user)
+//   }
+//   return (
+//    <div className='m-10 w-[60px]'>
+//     <form onSubmit={submitHandler}>
+//         <input className='px-3 py-2 border rounded-md outline-blue-400 text-lg' type="text" placeholder='username' name='username'/>
+//         <br />
+//         <br />
+//         <input className='px-3 py-2 border rounded-md outline-blue-400 text-lg' type="text" placeholder='email' name='email' />
+//         <br />
+//         <br />
+//         <button className='px-4 py-1 border rounded-md outline-blue-400 text-lg'>Submit</button>
+//     </form>
+//    </div>
+//   )
+// }
+
+// export default App
+
+
+// The below code is correct acc to react bcz in the further code we firstly tell the react what is typing in the input field and then throught the value we pass it return to input field
+// import { useState } from 'react';
+
+// const App = () => {
+//   const [formdata, setformData] = useState({
+//     username: '',
+//     email: '',
+//   });
+// //   prevformdata: It gets the current state (what the form data looked like before the change).
+// // ...prevformdata: This is called the "spread operator." It copies all the existing values in formdata so that you don't lose any previously typed values (for example, if you typed the username first, this keeps the email intact, or vice versa).
+//   const changeHandler = (e) => {
+//     const { name, value } = e.target;
+//     setformData((prevformdata) => ({
+//       ...prevformdata,
+//       computed property - []
+//       [name]: value, // Update the specific field (username or email)
+//     }));
+//   };
+
+//   const submitHandler = (e) => {
+//     e.preventDefault();
+//     console.log(formdata.username); // Access username from formdata
+//     console.log(formdata.email); // Access email from formdata
+//     console.log('submitted');
+//   };
+
+//   return (
+//     <div className='m-10 w-[60px]'>
+//       <form onSubmit={submitHandler}>
+//         <input
+//           className='px-3 py-2 border rounded-md outline-blue-400 text-lg'
+//           type='text'
+//           placeholder='username'
+//           name='username'
+//           onChange={changeHandler}
+//           value={formdata.username} // Use the correct state value
+//         />
+//         <br />
+//         <br />
+//         <input
+//           className='px-3 py-2 border rounded-md outline-blue-400 text-lg'
+//           type='text'
+//           placeholder='email'
+//           name='email'
+//           onChange={changeHandler}
+//           value={formdata.email} // Use the correct state value
+//         />
+//         <br />
+//         <br />
+//         <button className='px-4 py-1 border rounded-md outline-blue-400 text-lg'>
+//           Submit
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+// Another way of doing the above code i.e if we have to access two different prop manually then how can it be done !!
+
+// import { useState } from "react"
+
+// const App = () => {
+//   const [task, settask] = useState("")
+//   const [desc, setdesc] = useState("")
+
+//   const submitHandler = (e) => {
+//    e.preventDefault()
+//    console.log("Task is",task)
+//    console.log("Description is",desc)
+//    console.log("submitted")
+//    settask("")
+//    setdesc("")
+//   }
+//   return (
+//     <div>
+//       <form className="m-10" onSubmit={submitHandler}>
+//       <input type="text" placeholder='Enter Task' onChange={(e) => {
+//     settask(e.target.value)
+//   }} value={task}/>
+//       <br />
+//       <br />
+//       <input type="text" placeholder='Enter Description' onChange={(e) => {
+//     setdesc(e.target.value)
+//   }} value={desc}/>
+//       <br />
+//       <br />
+//       <button>Submit</button>
+//       </form>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// Different way for differnet inputs to tell react wyour workat we are doing oof we can say that do this for us to react and then react will tell us that i have done your work !!
+
+// import { Fragment, useState } from 'react'
+
+// const App = () => {
+//     const [gender, setgender] = useState("")
+//     const [validate, setvalidate] = useState(false)
+//     const [city, setcity] = useState("")
+//     const [avatar, setavatar] = useState(null)
+//     var submitHandler = (e) => {
+//         e.preventDefault()
+//         let user = {
+//             gender,
+//             validate,
+//             city,
+//             avatar,
+//         }
+//         console.log(user)
+//     }
+//   return (
+//     <Fragment>
+//         <form className='m-10' onSubmit={submitHandler} encType='multipart/form-data'>
+//             <input type="file" onChange={(e) => setavatar(e.target.files[0])} />
+//             <br />
+//             <br />
+//             <input type="radio" name="gender" checked={gender === "others" ? true : false} defaultValue="others" onChange={(e) => setgender(e.target.value)}/> others
+//             <br />
+//             <input type="radio" name="gender" checked={gender === "male" ? true : false} defaultValue="male" onChange={(e) => setgender(e.target.value)}/> male
+//             <br />
+//             <input type="radio" name="gender" checked={gender === "female" ? true : false} defaultValue="female" onChange={(e) => setgender(e.target.value)}/> female
+//             <br />
+//             <br />
+//             <input type="checkbox" checked={validate} onChange={(e) => setvalidate(e.target.checked)}/> validate
+//             <br />
+//             <br />
+//             <select value={city} onChange={(e) => setcity(e.target.value)}>
+//                 <option value="">City</option>
+//                 <option value="bhopal">Bhopal</option>
+//                 <option value="indore">Indore</option>
+//                 <option value="jabalpur">Jabalpur</option>
+//                 <option value="gwalior">Gwalior</option>
+//             </select>
+//             <br />
+//             <br />
+//             <button>Submit</button>
+//         </form>
+//     </Fragment>
+//   )
+// }
+
+// export default App
+
+
+// import {useForm} from 'react-hook-form'
+
+// const App = () => {
+//   const {register,handleSubmit,watch,formState:{errors}} = useForm()
+//   var submitHandler = (data) => {
+//     console.log(data)
+//   }
+// //   console.log(watch("username"))
+// //   console.log(errors)
+//   return (
+//     <div>
+//         <form onSubmit={handleSubmit(submitHandler)}>
+//             <input type="text" placeholder='username' {...register("username",{required:"Username is required",maxLength:8,minLength:4})}/>
+//             {errors.username?.type == 'required' && <p className='text-red-500 mt-5'>{errors.username.message}</p>}
+//             <br />
+//             <br />
+//             <input type="radio" defaultValue={"male"}  {...register("gender")}/> Male
+//             <br />
+//             <input type="radio"  defaultValue={"female"} {...register("gender")}/> Female
+//             <br />
+//             <br />
+//            <button>Submit</button>
+//         </form>
+//     </div>
+//   )
+// }
+
+// export default App
+ 
+// How to use props :
+
+// import React from 'react'
+// import Footer from './components/Footer.jsx'
+// import Navigation from './components/Navigation.jsx'
+
+// const App = () => {
+//   return (
+//     <div>
+//       <Footer text="Heyy"/>
+//       <Navigation text="Hello i am kanika sahu"/>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// const Footer = (props) => {
+//   return (
+//     <div>
+//       {/* <h1 className={css.heading}>{props.name}</h1> */}
+//       <footer>
+//         <h1>{props.text}</h1>
+//       </footer>
+//     </div>
+//   )
+// }
+
+// export default Footer
+
+// const Navigation = (props) => {
+//   return (
+//     <div>
+//       <navigation>
+//       <h2>{props.text}</h2>
+//       </navigation>
+//     </div>
+//   )
+// }
+
+// export default Navigation
+
+// This whole code is known as function component
